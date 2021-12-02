@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "allowJs": true,
+        "module": "commonjs",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "sourceMap": false,
+        "types": ["node"],
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "esModuleInterop": true,
+        "typeRoots": ["node_modules/@types"],
+        "paths": {
+            "@data/*": ["data/*"],
+            "@models/*": ["models/*"], 
+            "@controllers/*": ["models/controllers/*"],
+            "@entities/*": ["models/entities/*"],
+            "@interfaces/*": ["models/controllers/interfaces/*"],
+            "@routes/*": ["routes/*"],
+            "@routesControllers/*": ["routesControllers/*"],
+            "@validators/*": ["validators/*"]
+        }
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+    
+    
+}
