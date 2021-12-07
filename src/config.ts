@@ -16,5 +16,6 @@ export const endpoints = {
     tipos: '/api/tipos',
     solicitudes: '/api/solicitudes',
     multimedia: '/api/multimedia',
-    mensaje: '/api/mensajes'
+    mensajes: '/api/mensajes',
+    preguntasFrecuentes: '/api/preguntasFrecuentes'
 };

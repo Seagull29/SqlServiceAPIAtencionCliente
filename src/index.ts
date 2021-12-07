@@ -12,6 +12,7 @@ import prioridadRoute from "@routes/prioridad.route";
 import solicitudRoute from "@routes/solicitud.route";
 import multimediaRoute from '@routes/multimedia.route';
 import mensajeRoute from "@routes/mensaje.route";
+import preguntaFrecuenteRoute from "@routes/preguntaFrecuente.route";
 
 const app : Application = express();
 
@@ -38,7 +39,8 @@ app.use(endpoints.tipos, tipoRoute);
 app.use(endpoints.categorias, categoriaRoute);
 app.use(endpoints.solicitudes, solicitudRoute);
 app.use(endpoints.multimedia, multimediaRoute);
-app.use(endpoints.mensaje, mensajeRoute);
+app.use(endpoints.mensajes, mensajeRoute);
+app.use(endpoints.preguntasFrecuentes, preguntaFrecuenteRoute);
 
 
 app.listen(app.get('port'), () => {
