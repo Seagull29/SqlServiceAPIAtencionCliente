@@ -19,9 +19,9 @@ class AdministradorRouteController implements IApiOperations {
 
     add = async (req: Request, res: Response) : Promise<void> => {
 
-        const { dni, nombre, apellidos, celular } = req.body;
+        const { identificacion, nombre, apellidos, celular } = req.body;
         const val = await administradorController.add(new Administrador(
-            dni,
+            identificacion,
             nombre,
             apellidos,
             celular
@@ -46,19 +46,19 @@ class AdministradorRouteController implements IApiOperations {
     }
 
     delete = async (req: Request, res: Response) => {
-        const { dni } = req.body;
-        const val = await administradorController.delete(new Administrador(dni));
+        const { identificacion } = req.body;
+        const val = await administradorController.delete(new Administrador(identificacion));
         if (val.status) {
             res.status(403).json({ error: val.errorMessage });
             return;
         }
-        res.json({ deleted: dni });
+        res.json({ deleted: identificacion });
     }
 
     update = async (req: Request, res: Response) => {
-        const { dni, nombre, apellidos, celular } = req.body;
+        const { identificacion, nombre, apellidos, celular } = req.body;
         const val = await administradorController.update(new Administrador(
-            dni, nombre, apellidos, celular
+            identificacion, nombre, apellidos, celular
         ));
         if (val.status) {
             res.status(403).json({ error: val.errorMessage });

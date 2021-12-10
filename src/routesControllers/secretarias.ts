@@ -19,9 +19,9 @@ class SecretariaRouteController implements IApiOperations {
 
     add = async (req: Request, res: Response) => {
 
-        const { dni, nombre, apellidos, celular } = req.body;
+        const { identificacion, nombre, apellidos, celular } = req.body;
         const val = await secretariaController.add(new Secretaria(
-            dni,
+            identificacion,
             nombre,
             apellidos,
             celular
@@ -46,19 +46,19 @@ class SecretariaRouteController implements IApiOperations {
     }
 
     delete = async (req: Request, res: Response) => {
-        const { dni } = req.body;
-        const val = await secretariaController.delete(new Secretaria(dni));
+        const { identificacion } = req.body;
+        const val = await secretariaController.delete(new Secretaria(identificacion));
         if (val.status) {
             res.status(403).json({ error: val.errorMessage });
             return;
         }
-        res.json({ deleted: dni });
+        res.json({ deleted: identificacion });
     }
 
     update = async (req: Request, res: Response) => {
-        const { dni, nombre, apellidos, celular } = req.body;
+        const { identificacion, nombre, apellidos, celular } = req.body;
         const val = await secretariaController.update(new Secretaria(
-            dni, nombre, apellidos, celular
+            identificacion, nombre, apellidos, celular
         ));
         if (val.status) {
             res.status(403).json({ error: val.errorMessage });

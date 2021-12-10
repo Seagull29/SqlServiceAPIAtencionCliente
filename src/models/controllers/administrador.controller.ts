@@ -10,13 +10,13 @@ class AdministradorController implements IOperations<Administrador> {
     add = async (a : Administrador) : Promise<object | any> => {
         try {
             const {
-                dni,
+                identificacion,
                 nombre,
                 apellidos,
                 celular
             } = a;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .input('Nombre', sql.VarChar, nombre)
                                              .input('Apellidos', sql.VarChar, apellidos)
                                              .input('Celular', sql.VarChar, celular)
@@ -45,13 +45,13 @@ class AdministradorController implements IOperations<Administrador> {
     update = async (a : Administrador) : Promise<object | any> => {
         try {
             const {
-                dni,
+                identificacion,
                 nombre,
                 apellidos,
                 celular
             } = a;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .input('Nombre', sql.VarChar, nombre)
                                              .input('Apellidos', sql.VarChar, apellidos)
                                              .input('Celular', sql.VarChar, celular)
@@ -79,9 +79,9 @@ class AdministradorController implements IOperations<Administrador> {
 
     delete = async (a : Administrador) : Promise<object | any> => {
         try {
-            const { dni } = a;
+            const { identificacion } = a;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .execute('spEliminarAdministrador');
             const { CodError : error, Mensaje : mensaje } = rows.recordset[0];
             if (error) {

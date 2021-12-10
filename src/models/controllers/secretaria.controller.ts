@@ -10,13 +10,13 @@ class SecretariaController implements IOperations<Secretaria> {
     add = async (d : Secretaria) : Promise<object | any> => {
         try {
             const {
-                dni,
+                identificacion,
                 nombre,
                 apellidos,
                 celular
             } = d;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .input('Nombre', sql.VarChar, nombre)
                                              .input('Apellidos', sql.VarChar, apellidos)
                                              .input('Celular', sql.VarChar, celular)
@@ -45,13 +45,13 @@ class SecretariaController implements IOperations<Secretaria> {
     update = async (d : Secretaria) : Promise<object | any> => {
         try {
             const {
-                dni,
+                identificacion,
                 nombre,
                 apellidos,
                 celular
             } = d;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .input('Nombre', sql.VarChar, nombre)
                                              .input('Apellidos', sql.VarChar, apellidos)
                                              .input('Celular', sql.VarChar, celular)
@@ -79,9 +79,9 @@ class SecretariaController implements IOperations<Secretaria> {
 
     delete = async (e : Secretaria) : Promise<object | any> => {
         try {
-            const { dni } = e;
+            const { identificacion } = e;
             const pool : sql.ConnectionPool = await sqlConnection.getConnection();
-            const rows = await pool.request().input('DNI', sql.VarChar, dni)
+            const rows = await pool.request().input('Identificacion', sql.VarChar, identificacion)
                                              .execute('spEliminarSecretaria');
             const { CodError : error, Mensaje : mensaje } = rows.recordset[0];
             if (error) {

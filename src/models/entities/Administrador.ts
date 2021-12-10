@@ -2,19 +2,19 @@ import { Usuario } from "@entities/Usuario";
 
 export class Administrador extends Usuario {
 
-    #dni : string;
+    #identificacion : string;
 
-    constructor(dni? : string, nombre? : string, apellidos? : string, celular? : string) {
+    constructor(identificacion? : string, nombre? : string, apellidos? : string, celular? : string) {
         super(nombre, apellidos, celular);
-        this.#dni = dni;
+        this.#identificacion = identificacion;
     }
 
-    get dni() : string {
-        return this.#dni;
+    get identificacion() : string {
+        return this.#identificacion;
     }
 
-    set dni(dni : string) {
-        this.#dni = dni;
+    set identificacion(identificacion : string) {
+        this.#identificacion = identificacion;
     }
 
 
